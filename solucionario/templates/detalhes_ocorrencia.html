@@ -12,7 +12,7 @@
       <p><strong>Imagem:</strong></p>
       {% if ocorrencia.print_ocorrencia %}
         <div class="text-center">
-          <img src="{{ ocorrencia.print_ocorrencia.url }}" alt="{{ ocorrencia.titulo }}" class="img-fluid img-thumbnail" style="max-width: 400px;">
+          <img src="{{ ocorrencia.print_ocorrencia.url }}" alt="{{ ocorrencia.titulo }}" class="img-fluid img-thumbnail" style="max-width: 100%; height: auto;">
         </div>
       {% else %}
         <p>Sem imagem disponível.</p>
