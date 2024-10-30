@@ -2,36 +2,38 @@
 
 {% block content %}
   <h1 class="mb-4 text-center">Lista de Ocorrências</h1>
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th>ID</th>
-        <th>Título</th>
-        <th>Descrição</th>
-        <th>Autor</th>
-        <th>Data</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for ocorrencia in lista_ocorrencia %}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark">
         <tr>
-          <td>{{ ocorrencia.id }}</td>
-          <td>{{ ocorrencia.titulo }}</td>
-          <td>{{ ocorrencia.desc_ocorrencia|truncatewords:20 }}</td>
-          <td>{{ ocorrencia.autor }}</td>
-          <td>{{ ocorrencia.data }}</td>
-          <td>
-            <a href="{% url 'detalhes_ocorrencia' ocorrencia.id %}" class="btn btn-info btn-sm">Ver</a>
-          </td>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Autor</th>
+          <th>Data</th>
+          <th>Ações</th>
         </tr>
-      {% empty %}
-        <tr>
-          <td colspan="5">Nenhuma ocorrência encontrada.</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for ocorrencia in lista_ocorrencia %}
+          <tr>
+            <td>{{ ocorrencia.id }}</td>
+            <td>{{ ocorrencia.titulo }}</td>
+            <td>{{ ocorrencia.desc_ocorrencia|truncatewords:20 }}</td>
+            <td>{{ ocorrencia.autor }}</td>
+            <td>{{ ocorrencia.data }}</td>
+            <td>
+              <a href="{% url 'detalhes_ocorrencia' ocorrencia.id %}" class="btn btn-info btn-sm">Ver</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6">Nenhuma ocorrência encontrada.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   <div class="text-center">
     <a href="{% url 'cria_ocorrencia' %}" class="btn btn-primary">Criar Nova Ocorrência</a>
   </div>
