@@ -6,9 +6,7 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th>ID</th>
           <th>Título</th>
-          <th>Descrição</th>
           <th>Autor</th>
           <th>Data</th>
           <th>Ações</th>
@@ -17,9 +15,7 @@
       <tbody>
         {% for ocorrencia in lista_ocorrencia %}
           <tr>
-            <td>{{ ocorrencia.id }}</td>
             <td>{{ ocorrencia.titulo }}</td>
-            <td>{{ ocorrencia.desc_ocorrencia|truncatewords:20 }}</td>
             <td>{{ ocorrencia.autor }}</td>
             <td>{{ ocorrencia.data }}</td>
             <td>
@@ -28,7 +24,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td colspan="6">Nenhuma ocorrência encontrada.</td>
+            <td colspan="4">Nenhuma ocorrência encontrada.</td>
           </tr>
         {% endfor %}
       </tbody>
