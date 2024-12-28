@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-b=ap(u96ju)r54%*7n2z72=hwxte&l65g%z(+$44sz(cbxp6#_
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = [
+    'https://solucionario.onrender.com',
+]
+
 
 
 
