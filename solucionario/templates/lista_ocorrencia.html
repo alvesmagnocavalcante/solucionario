@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-4 text-center">Lista de Ocorrências</h1>
+
+  <!-- Botão para registrar nova ocorrência -->
+  <div class="row mb-4">
+    <div class="col-12 text-right">
+      <a href="{% url 'cria_ocorrencia' %}" class="btn btn-success">Registrar Nova Ocorrência</a>
+    </div>
+  </div>
+
+  <!-- Formulário de pesquisa acima da lista -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <form method="get" class="d-flex">
+        <input type="text" name="q" class="form-control" placeholder="Pesquisar por título..." value="{{ request.GET.q }}">
+        <button class="btn btn-primary ml-2" type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Exibindo as ocorrências -->
+  <ul class="list-group">
+    {% for ocorrencia in lista_ocorrencia %}
+      <li class="list-group-item">
+        <a href="{% url 'detalhes_ocorrencia' ocorrencia.id %}">{{ ocorrencia.titulo }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item">Nenhuma ocorrência encontrada.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

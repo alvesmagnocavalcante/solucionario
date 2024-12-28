@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-4 text-center">{{ ocorrencia.titulo }}</h1>
+  <div class="card">
+    <div class="card-body">
+      <p><strong>Descrição da Ocorrência:</strong> {{ ocorrencia.desc_ocorrencia }}</p>
+      <p><strong>Descrição da Solução:</strong> {{ ocorrencia.desc_solução }}</p>
+      <p><strong>Autor:</strong> {{ ocorrencia.autor }}</p>
+      <p><strong>Data:</strong> {{ ocorrencia.data }}</p>
+
+      <p><strong>Imagem:</strong></p>
+      {% if ocorrencia.print_ocorrencia %}
+        <div class="text-center" style="max-width: 600px; margin: 0 auto;">
+          <img src="{{ ocorrencia.print_ocorrencia.url }}" alt="{{ ocorrencia.titulo }}" class="img-fluid img-thumbnail" style="width: 100%; height: auto;">
+        </div>
+      {% else %}
+        <p>Sem imagem disponível.</p>
+      {% endif %}
+      <div class="mt-3">
+        <a href="{% url 'lista_ocorrencia' %}" class="btn btn-secondary">Voltar para a lista de ocorrências</a>
+        <a href="{% url 'download_ocorrencia_pdf' ocorrencia.id %}" class="btn btn-primary">Baixar em PDF</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
