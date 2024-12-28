@@ -8,6 +8,7 @@ from .models import Ocorrencia
 from .forms import OcorrenciaForm
 from reportlab.lib.utils import ImageReader
 from django.db.models import Q
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Image  # Adicionando as importações necessárias
 
 # View para listar as ocorrências
 class ListaOcorrenciaView(ListView):
